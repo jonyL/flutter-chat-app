@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 class BotonAzul extends StatelessWidget {
   final Function() onPress;
@@ -9,7 +11,7 @@ class BotonAzul extends StatelessWidget {
     return     ElevatedButton(
             style: ElevatedButton.styleFrom(
               elevation: 2,
-              shape: StadiumBorder(),
+              shape: const StadiumBorder(),
               primary: Colors.blue
             ),
             onPressed: onPress,            

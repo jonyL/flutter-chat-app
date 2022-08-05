@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, avoid_print
 
 import 'package:chat/widgets/boton_azul.dart';
 import 'package:chat/widgets/custom_input.dart';
@@ -22,7 +22,7 @@ class RegisterPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    Logo(titulo: 'Registro'),
+                    const Logo(titulo: 'Registro'),
                     _Form(),
                     const Labels(ruta: 'login', text: '¿Ya tienes cuenta?', textLink: 'Ingresa ahora',), 
                     const Text('Términos y condiciones de uso', style: TextStyle(fontWeight: FontWeight.w200),),
