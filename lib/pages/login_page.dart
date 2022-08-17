@@ -2,6 +2,7 @@
 
 import 'package:chat/helpers/mostrar_alerta.dart';
 import 'package:chat/services/auth_service.dart';
+import 'package:chat/services/socket_service.dart';
 import 'package:chat/widgets/boton_azul.dart';
 import 'package:chat/widgets/custom_input.dart';
 import 'package:chat/widgets/labels_input.dart';
@@ -52,6 +53,7 @@ class __FormState extends State<_Form> {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
+    final socketService = Provider.of<SocketService>(context);
     return Container(
       margin: const EdgeInsets.only(top: 40),
       padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -76,7 +78,7 @@ class __FormState extends State<_Form> {
               FocusScope.of(context).unfocus(); //Quita el foco de donde esté y esconde el teclado    
               final loginOk = await authService.login(emailCtrl.text.trim(), passCtrl.text.trim());
               if( loginOk) {
-                //TODO: Conectar a nuestro socket server
+                socketService.connect();
 
                 Navigator.pushReplacementNamed(context, 'usuarios');
               }else {
